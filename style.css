@@ -1,0 +1,221 @@
+/* Add a general reset for padding and margin */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0; /* Set a background color */
+  overflow: hidden;
+}
+
+.background-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: background-image 2s ease-in-out;
+  z-index: -1;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+}
+
+.line-1 {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  max-width: 600px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  font-size: 180%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  color: white;
+  text-shadow: 4px 1px black;
+  transform: translateY(-50%);
+}
+
+.anim-typewriter {
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+    blinkTextCursor 500ms steps(44) infinite normal;
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: rgba(255, 255, 255, 0.75);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
+
+.textbox {
+  position: absolute;
+  color: white;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.textbox h1 {
+  font-size: 60px;
+  padding-left: 1cm;
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 3px whitesmoke;
+  background: url(./bg1.jpg);
+  -webkit-background-clip: text;
+  background-position: 0 0;
+  animation: back 40s linear infinite;
+  margin-bottom: 5px;
+}
+
+@keyframes back {
+  100% {
+    background-position: 2000px 0;
+  }
+}
+
+.textbox h1 .larger-text {
+  font-size: 80px;
+  font-weight: 800;
+}
+
+.textbox h2 {
+  font-size: 55px;
+  padding-left: 1cm;
+  font-weight: 800;
+  margin-top: 5px;
+  font-family: "Itim", cursive;
+  text-shadow: 5px 5px black;
+  overflow: hidden;
+  border-right: 2px solid transparent;
+  white-space: nowrap;
+  animation: typewriter 3s steps(20) 1;
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.button-container {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.btn {
+  width: 100%;
+  max-width: 500px;
+  height: 70px;
+  text-align: center;
+  line-height: 60px;
+  font-weight: 700;
+  font-size: 40px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  border: 5px solid transparent;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.btn:hover {
+  animation: animate 8s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+
+.btn:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  z-index: -1;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.btn:hover:before {
+  filter: blur(20px);
+  opacity: 1;
+  animation: animate 8s linear infinite;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .line-1 {
+    font-size: 120%;
+  }
+
+  .textbox h1 {
+    font-size: 40px;
+  }
+
+  .textbox h1 .larger-text {
+    font-size: 60px;
+  }
+
+  .textbox h2 {
+    font-size: 35px;
+  }
+
+  .button-container {
+    bottom: 10%;
+  }
+
+  .btn {
+    font-size: 30px;
+    height: 60px;
+    line-height: 50px;
+  }
+}
